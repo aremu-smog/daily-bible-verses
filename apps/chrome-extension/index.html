@@ -9,16 +9,30 @@
 				background-color: black;
 				color: beige;
 				text-align: center;
-				padding-top: 25%;
+			}
+			main {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				height: 100vh;
+			}
+			.wrapper {
+				max-width: 1000px;
+				margin: auto;
+			}
+			#bible-verse {
+				font-size: 48px;
 			}
 		</style>
 	</head>
 	<body>
 		<main>
-			<p id="todays-date"></p>
+			<section class="wrapper">
+				<p id="todays-date"></p>
 
-			<h1 id="bible-verse"></h1>
-			<p id="bible-reference"></p>
+				<h1 id="bible-verse"></h1>
+				<p id="bible-reference"></p>
+			</section>
 		</main>
 	</body>
 	<script src="./index.js"></script>
