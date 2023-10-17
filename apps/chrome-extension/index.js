@@ -22,11 +22,11 @@ const getTodaysDate = () => {
 }
 
 /**
- * @typedef {Object} verse
- * @param {string} bibleReference
- * @param {string} bibleVerse
+ * @typedef {Object} VerseOfTheDay
+ * @property {string} bibleReference
+ * @property {string} bibleVerse
  *
- * @returns {verse}
+ * @returns {VerseOfTheDay}
  */
 const getVerse = async () => {
 	let bibleVerse
