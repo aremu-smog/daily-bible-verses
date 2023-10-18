@@ -7,6 +7,12 @@ body {
 	color: #222222;
 	font-family: "primary", sans-serif;
 }
+a {
+	color: inherit;
+}
+a:hover {
+	text-decoration: none;
+}
 p {
 	font-size: 16px;
 	text-transform: uppercase;
@@ -83,7 +89,11 @@ footer {
 	left: 0;
 	right: 0;
 	padding: 2em;
-	display: flex;
 	width: calc(100% - 4em);
+	text-align: center;
+}
+
+footer .button-group {
+	display: flex;
 	justify-content: center;
 }
