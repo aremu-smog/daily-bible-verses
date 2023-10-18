@@ -82,6 +82,9 @@ button:hover::after {
 .dark button:hover {
 	color: #222222;
 }
+.dark .play-audio__loader {
+	background-color: #f8f8f8;
+}
 
 #play-button {
 	font-size: 16px;
@@ -115,7 +118,7 @@ footer .button-group {
 	position: absolute;
 	left: 0;
 	bottom: 0;
-	background-color: #f8f8f8;
+	background-color: #222222;
 	height: 100px;
 	z-index: -1;
 	width: 0px;
