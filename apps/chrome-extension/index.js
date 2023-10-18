@@ -2,6 +2,8 @@ const todaysDate = document.querySelector("#todays-date")
 const todaysVerse = document.querySelector("#bible-verse")
 const todaysBibleReference = document.querySelector("#bible-reference")
 
+const themeToggleButton = document.querySelector("#theme-button")
+
 window.addEventListener("load", async e => {
 	const currentDate = getTodaysDate()
 	todaysDate.innerText = currentDate
@@ -9,6 +11,20 @@ window.addEventListener("load", async e => {
 
 	todaysVerse.innerText = bibleVerse
 	todaysBibleReference.innerText = bibleReference
+})
+
+themeToggleButton.addEventListener("click", () => {
+	const mainWrapper = document.querySelector("body")
+
+	const isDarkMode = mainWrapper.classList.contains("dark")
+
+	if (isDarkMode) {
+		mainWrapper.classList.remove("dark")
+		themeToggleButton.innerText = "Dark"
+	} else {
+		mainWrapper.classList.add("dark")
+		themeToggleButton.innerText = "Light"
+	}
 })
 
 /**

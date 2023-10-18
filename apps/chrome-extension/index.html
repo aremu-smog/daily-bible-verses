@@ -6,16 +6,17 @@
 		<title>Daily Bible Verses</title>
 		<style>
 			@font-face {
-				font-family: "Inclusive Sans";
-				src: url("assets/fonts/InclusiveSans-Regular.ttf");
+				font-family: "primary";
+				src: url("assets/fonts/FTSystemTrial-BlankRegular.otf");
 			}
 			body {
-				background-color: black;
-				color: beige;
-				text-align: center;
-				padding: 0;
-				margin: 0;
-				position: relative;
+				background-color: #f8f8f8;
+				color: #222222;
+				font-family: "primary", sans-serif;
+				/* text-align: center; */
+				/* padding: 0;
+				margin: 0; */
+				/* position: relative; */
 			}
 			p {
 				margin: 0;
@@ -24,23 +25,23 @@
 				text-transform: uppercase;
 			}
 			main {
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				height: 95vh;
-				background-color: rgba(255, 255, 255, 0.1);
-				aspect-ratio: 1/1;
-				margin: auto;
-				margin-top: 2.5vh;
-				border-radius: 100%;
 			}
 			.wrapper {
-				max-width: 750px;
+				max-width: 1000px;
 				margin: auto;
 			}
 			#bible-verse {
-				font-family: "Inclusive Sans", sans-serif;
-				font-size: 48px;
+				font-size: 78px;
+			}
+			.dark {
+				background-color: #222222;
+				color: #f8f8f8;
+			}
+			button {
+				background: transparent;
+				border: 1px solid #222222;
+				border-radius: 50px;
+				cursor: pointer;
 			}
 		</style>
 	</head>
@@ -52,6 +53,8 @@
 				<p id="bible-reference"></p>
 			</section>
 		</main>
+		<footer></footer>
+		<button id="theme-button">Dark/Light</button>
 	</body>
 	<script src="./index.js"></script>
 </html>
