@@ -40,7 +40,7 @@ button {
 	cursor: pointer;
 	font-size: 24px;
 	padding: 1rem 2rem;
-	margin: 0 0.5em;
+	margin: 0 0.25em;
 	position: relative;
 	overflow: hidden;
 	z-index: 1;
@@ -83,6 +83,10 @@ button:hover::after {
 	color: #222222;
 }
 
+#play-button {
+	font-size: 16px;
+	padding: 0.3em 2em;
+}
 footer {
 	position: fixed;
 	bottom: 0;
@@ -96,4 +100,25 @@ footer {
 footer .button-group {
 	display: flex;
 	justify-content: center;
+}
+
+.play-audio {
+	cursor: not-allowed;
+	color: rgba(0, 0, 0, 0) !important;
+}
+.play-audio:hover::after {
+	height: 0px !important;
+}
+
+.play-audio__loader {
+	display: block;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	background-color: #f8f8f8;
+	height: 100px;
+	z-index: -1;
+	width: 0px;
+	transition-property: width;
+	transition-timing-function: linear;
 }

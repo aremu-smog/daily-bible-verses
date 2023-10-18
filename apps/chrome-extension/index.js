@@ -4,6 +4,10 @@ const todaysBibleReference = document.querySelector("#bible-reference")
 
 const mainWrapper = document.querySelector("body")
 const themeToggleButton = document.querySelector("#theme-button")
+const tweetThisButton = document.querySelector("#tweet-button")
+
+const playButton = document.querySelector("#play-button")
+const playButtonLoader = document.querySelector(".play-audio__loader")
 
 window.addEventListener("load", async e => {
 	const currentDate = getTodaysDate()
@@ -28,6 +32,48 @@ themeToggleButton.addEventListener("click", () => {
 		themeToggleButton.innerText = "Light Mode"
 		setCurrentTheme("dark")
 	}
+})
+
+tweetThisButton.addEventListener("click", async () => {
+	const { bibleReference, bibleVerse } = await getVerse()
+	const text = `VerseOfTheDay. ${bibleVerse} - ${bibleReference} `
+
+	window.open(
+		`https://twitter.com/intent/tweet?text=${text}&via=aremu_smog`,
+		"popup",
+		"width=600,height=600"
+	)
+})
+
+playButton.addEventListener("click", async () => {
+	const { bibleReference, bibleVerse } = await getVerse()
+
+	const fullText = `${bibleReference}. ${bibleVerse}`
+	const noOfWords = fullText.split(" ").length
+
+	const averageWordsPerMinute = 190 // 180 - 220 based off the doc
+
+	const chosenRate = 0.5
+
+	const animationDuration = (noOfWords / averageWordsPerMinute) * 60
+
+	chrome.tts.speak(fullText, {
+		rate: chosenRate,
+		onEvent: e => {
+			if (e.type === "start") {
+				playButton.classList.add("play-audio")
+				playButtonLoader.style.transitionDuration = `${animationDuration.toFixed(
+					1
+				)}s`
+				playButtonLoader.style.width = "100%"
+			}
+			if (e.type === "end") {
+				playButton.classList.remove("play-audio")
+				playButtonLoader.style.transitionDuration = `0s`
+				playButtonLoader.style.width = "0%"
+			}
+		},
+	})
 })
 
 /**
