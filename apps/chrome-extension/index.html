@@ -19,8 +19,6 @@
 				/* position: relative; */
 			}
 			p {
-				margin: 0;
-				line-height: 0;
 				font-size: 16px;
 				text-transform: uppercase;
 			}
@@ -29,9 +27,13 @@
 			.wrapper {
 				max-width: 1000px;
 				margin: auto;
+				text-align: center;
+				padding-top: 6rem;
 			}
 			#bible-verse {
 				font-size: 78px;
+				line-height: 1.2;
+				margin: 0.1em 0;
 			}
 			.dark {
 				background-color: #222222;
@@ -42,23 +44,46 @@
 				border: 1px solid #222222;
 				border-radius: 50px;
 				cursor: pointer;
+				font-size: 24px;
+				padding: 1rem 2rem;
+				margin: 0 0.5em;
 			}
-			.dark button {
+			.pill {
+				background-color: transparent;
+				border: 1px solid #222222;
+				border-radius: 6px;
+				display: inline-block;
+				padding: 0 8px;
+			}
+			.dark button,
+			.dark .pill {
 				border-color: #f8f8f8;
 				color: #f8f8f8;
+			}
+
+			footer {
+				/* background-color: aqua; */
+				position: fixed;
+				bottom: 0;
+				padding: 2em;
+				display: flex;
+				width: calc(100% - 4em);
+				justify-content: center;
 			}
 		</style>
 	</head>
 	<body>
 		<main>
 			<section class="wrapper">
-				<p id="todays-date"></p>
+				<p id="todays-date" class="pill"></p>
 				<h1 id="bible-verse"></h1>
-				<p id="bible-reference"></p>
+				<p id="bible-reference" class="pill"></p>
 			</section>
 		</main>
-		<footer></footer>
-		<button id="theme-button">Dark/Light</button>
+		<footer>
+			<button>Tweet this</button>
+			<button id="theme-button">Dark/Light</button>
+		</footer>
 	</body>
 	<script src="./index.js"></script>
 </html>

@@ -21,11 +21,11 @@ themeToggleButton.addEventListener("click", () => {
 
 	if (isDarkMode) {
 		mainWrapper.classList.remove("dark")
-		themeToggleButton.innerText = "Dark"
+		themeToggleButton.innerText = "Dark Mode"
 		setCurrentTheme("light")
 	} else {
 		mainWrapper.classList.add("dark")
-		themeToggleButton.innerText = "Light"
+		themeToggleButton.innerText = "Light Mode"
 		setCurrentTheme("dark")
 	}
 })
@@ -97,10 +97,10 @@ const setTheme = async () => {
 
 	if (isDarkMode) {
 		mainWrapper.classList.add("dark")
-		themeToggleButton.innerText = "Light"
+		themeToggleButton.innerText = "Light Mode"
 	} else {
 		mainWrapper.classList.remove("dark")
-		themeToggleButton.innerText = "Dark"
+		themeToggleButton.innerText = "Dark Mode"
 	}
 }
 
