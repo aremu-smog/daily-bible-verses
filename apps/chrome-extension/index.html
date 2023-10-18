@@ -5,10 +5,22 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Daily Bible Verses</title>
 		<style>
+			@font-face {
+				font-family: "Inclusive Sans";
+				src: url("assets/fonts/InclusiveSans-Regular.ttf");
+			}
 			body {
 				background-color: black;
 				color: beige;
 				text-align: center;
+				padding: 0;
+				margin: 0;
+			}
+			p {
+				margin: 0;
+				line-height: 0;
+				font-size: 16px;
+				text-transform: uppercase;
 			}
 			main {
 				display: flex;
@@ -21,6 +33,7 @@
 				margin: auto;
 			}
 			#bible-verse {
+				font-family: "Inclusive Sans", sans-serif;
 				font-size: 48px;
 			}
 		</style>
@@ -29,7 +42,6 @@
 		<main>
 			<section class="wrapper">
 				<p id="todays-date"></p>
-
 				<h1 id="bible-verse"></h1>
 				<p id="bible-reference"></p>
 			</section>
