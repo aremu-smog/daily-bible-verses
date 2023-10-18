@@ -2,6 +2,7 @@ const todaysDate = document.querySelector("#todays-date")
 const todaysVerse = document.querySelector("#bible-verse")
 const todaysBibleReference = document.querySelector("#bible-reference")
 
+const mainWrapper = document.querySelector("body")
 const themeToggleButton = document.querySelector("#theme-button")
 
 window.addEventListener("load", async e => {
@@ -11,19 +12,21 @@ window.addEventListener("load", async e => {
 
 	todaysVerse.innerText = bibleVerse
 	todaysBibleReference.innerText = bibleReference
+
+	await setTheme()
 })
 
 themeToggleButton.addEventListener("click", () => {
-	const mainWrapper = document.querySelector("body")
-
 	const isDarkMode = mainWrapper.classList.contains("dark")
 
 	if (isDarkMode) {
 		mainWrapper.classList.remove("dark")
 		themeToggleButton.innerText = "Dark"
+		setCurrentTheme("light")
 	} else {
 		mainWrapper.classList.add("dark")
 		themeToggleButton.innerText = "Light"
+		setCurrentTheme("dark")
 	}
 })
 
@@ -66,6 +69,39 @@ const getVerse = async () => {
 			bibleReference = verseOfTheDay[1]
 		})
 	return { bibleVerse, bibleReference }
+}
+
+const getCurrentTheme = async () => {
+	let theme
+	await chrome.storage.local.get(["theme"]).then(result => {
+		theme = result.theme
+	})
+
+	return theme
+}
+
+/**
+ *
+ * @param {string} theme
+ */
+const setCurrentTheme = theme => {
+	chrome.storage.local.set({ theme }).then(() => {
+		console.log("Theme set successfully")
+	})
+}
+
+const setTheme = async () => {
+	const currentTheme = await getCurrentTheme()
+
+	const isDarkMode = currentTheme === "dark"
+
+	if (isDarkMode) {
+		mainWrapper.classList.add("dark")
+		themeToggleButton.innerText = "Light"
+	} else {
+		mainWrapper.classList.remove("dark")
+		themeToggleButton.innerText = "Dark"
+	}
 }
 
 const MONTHS = [
