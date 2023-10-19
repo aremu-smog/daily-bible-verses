@@ -1,10 +1,15 @@
+:root {
+	--black: #222222;
+	--white: #f8f8f8;
+}
 @font-face {
 	font-family: "primary";
 	src: url("assets/fonts/FTSystemTrial-BlankRegular.otf");
 }
+
 body {
-	background-color: #f8f8f8;
-	color: #222222;
+	background-color: var(--white);
+	color: var(--black);
 	font-family: "primary", sans-serif;
 }
 a {
@@ -29,13 +34,10 @@ p {
 	line-height: 1.2;
 	margin: 0.1em 0;
 }
-.dark {
-	background-color: #222222;
-	color: #f8f8f8;
-}
+
 button {
 	background: transparent;
-	border: 1px solid #222222;
+	border: 1px solid var(--black);
 	border-radius: 50px;
 	cursor: pointer;
 	font-size: 24px;
@@ -51,7 +53,7 @@ button::after {
 	width: 100%;
 	height: 0;
 	display: block;
-	background-color: #222222;
+	background-color: var(--black);
 	position: absolute;
 	left: 0;
 	bottom: 0;
@@ -59,31 +61,17 @@ button::after {
 	z-index: -1;
 }
 button:hover {
-	color: #f8f8f8;
+	color: var(--white);
 }
 button:hover::after {
 	height: 500px;
 }
 .pill {
 	background-color: transparent;
-	border: 1px solid #222222;
+	border: 1px solid var(--black);
 	border-radius: 6px;
 	display: inline-block;
 	padding: 0 8px;
-}
-.dark button,
-.dark .pill {
-	border-color: #f8f8f8;
-	color: #f8f8f8;
-}
-.dark button::after {
-	background-color: #f8f8f8;
-}
-.dark button:hover {
-	color: #222222;
-}
-.dark .play-audio__loader {
-	background-color: #f8f8f8;
 }
 
 #play-button {
@@ -118,10 +106,33 @@ footer .button-group {
 	position: absolute;
 	left: 0;
 	bottom: 0;
-	background-color: #222222;
+	background-color: var(--black);
 	height: 100px;
 	z-index: -1;
 	width: 0px;
 	transition-property: width;
 	transition-timing-function: linear;
+}
+
+/*
+Dark mode specific styles
+*/
+.dark {
+	background-color: var(--black);
+	color: var(--white);
+}
+
+.dark button,
+.dark .pill {
+	border-color: var(--white);
+	color: var(--white);
+}
+.dark button::after {
+	background-color: var(--white);
+}
+.dark button:hover {
+	color: var(--black);
+}
+.dark .play-audio__loader {
+	background-color: var(--white);
 }
