@@ -74,6 +74,22 @@ button:hover::after {
 	padding: 0 8px;
 }
 
+#time-separator {
+	opacity: 1;
+	animation: blink 1s linear alternate forwards infinite;
+}
+
+@keyframes blink {
+	0% {
+		opacity: 1;
+	}
+	/* 50% {
+		opacity: 0.5;
+	} */
+	100% {
+		opacity: 0.5;
+	}
+}
 #play-button {
 	font-size: 16px;
 	padding: 0.3em 2em;

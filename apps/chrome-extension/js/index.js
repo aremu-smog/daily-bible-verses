@@ -9,6 +9,9 @@ const tweetThisButton = document.querySelector("#tweet-button")
 const playButton = document.querySelector("#play-button")
 const playButtonLoader = document.querySelector("#play-button-loader")
 
+const timerHour = document.querySelector("#hour")
+const timerMinute = document.querySelector("#minute")
+
 window.addEventListener("load", async e => {
 	const currentDate = getTodaysDate()
 	todaysDate.innerText = currentDate
@@ -18,6 +21,12 @@ window.addEventListener("load", async e => {
 	todaysBibleReference.innerText = bibleReference
 
 	await setTheme()
+
+	displayTime()
+
+	setInterval(() => {
+		displayTime()
+	}, 1000)
 })
 
 themeToggleButton.addEventListener("click", () => {
@@ -88,4 +97,17 @@ const setTheme = async () => {
 		mainWrapper.classList.remove("dark")
 		themeToggleButton.innerText = "Dark Mode"
 	}
+}
+
+const displayTime = () => {
+	const now = new Date()
+	const hour = now.getHours()
+	const minute = now.getMinutes()
+
+	const hourString = `${hour}`
+	const minuteString = `${minute}`
+
+	timerHour.textContent = hourString.length < 2 ? `0${hourString}` : hourString
+	timerMinute.textContent =
+		minuteString.length < 2 ? `0${minuteString}` : minuteString
 }
