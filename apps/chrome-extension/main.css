@@ -101,7 +101,7 @@ footer .button-group {
 	height: 0px !important;
 }
 
-.play-audio__loader {
+#play-button-loader {
 	display: block;
 	position: absolute;
 	left: 0;
@@ -133,6 +133,6 @@ Dark mode specific styles
 .dark button:hover {
 	color: var(--black);
 }
-.dark .play-audio__loader {
+.dark #play-button-loader {
 	background-color: var(--white);
 }

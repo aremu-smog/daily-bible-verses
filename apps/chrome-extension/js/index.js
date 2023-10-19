@@ -7,7 +7,7 @@ const themeToggleButton = document.querySelector("#theme-button")
 const tweetThisButton = document.querySelector("#tweet-button")
 
 const playButton = document.querySelector("#play-button")
-const playButtonLoader = document.querySelector(".play-audio__loader")
+const playButtonLoader = document.querySelector("#play-button-loader")
 
 window.addEventListener("load", async e => {
 	const currentDate = getTodaysDate()
