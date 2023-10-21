@@ -77,7 +77,7 @@ playButton.addEventListener("click", async () => {
 
 	chrome.tts.speak(fullText, {
 		rate: chosenRate,
-		voiceName: "Moira",
+		// voiceName: "Moira",
 		onEvent: e => {
 			if (e.type === "start") {
 				playButton.classList.add("play-audio")

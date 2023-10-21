@@ -27,7 +27,7 @@ p {
 	max-width: 1000px;
 	margin: auto;
 	text-align: center;
-	padding-top: 6rem;
+	padding-top: 5rem;
 }
 #bible-verse {
 	font-size: 72px;
@@ -75,19 +75,26 @@ button:hover::after {
 }
 
 #time-separator {
-	opacity: 1;
-	animation: blink 1s linear alternate forwards infinite;
+	opacity: 0;
+
+	animation: blink 1s linear forwards infinite;
 }
 
 @keyframes blink {
 	0% {
+		opacity: 0;
+	}
+	10% {
 		opacity: 1;
 	}
-	/* 50% {
-		opacity: 0.5;
-	} */
+	50% {
+		opacity: 1;
+	}
+	55% {
+		opacity: 0;
+	}
 	100% {
-		opacity: 0.5;
+		opacity: 0;
 	}
 }
 #play-button {
@@ -102,6 +109,8 @@ footer {
 	padding: 2em;
 	width: calc(100% - 4em);
 	text-align: center;
+	z-index: 100;
+	background-color: var(--white);
 }
 
 footer .button-group {
@@ -151,4 +160,7 @@ Dark mode specific styles
 }
 .dark #play-button-loader {
 	background-color: var(--white);
+}
+.dark footer {
+	background-color: var(--black);
 }
