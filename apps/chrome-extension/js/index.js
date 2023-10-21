@@ -81,6 +81,7 @@ playButton.addEventListener("click", async () => {
 		onEvent: e => {
 			if (e.type === "start") {
 				playButton.classList.add("play-audio")
+				playButton.setAttribute("disabled", "disabled")
 				playButtonLoader.style.transitionDuration = `${animationDuration.toFixed(
 					1
 				)}s`
@@ -88,6 +89,7 @@ playButton.addEventListener("click", async () => {
 			}
 			if (e.type === "end") {
 				playButton.classList.remove("play-audio")
+				playButton.removeAttribute("disabled")
 				playButtonLoader.style.transitionDuration = `0s`
 				playButtonLoader.style.width = "0%"
 			}
