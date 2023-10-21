@@ -58,7 +58,16 @@ playButton.addEventListener("click", async () => {
 	const { bibleReference, bibleVerse } = await getVerse()
 
 	const fullText = `${bibleReference}. ${bibleVerse}`
-	const noOfWords = fullText.split(" ").length
+	const bibleVerseLength = bibleVerse.split(" ").length
+	const bibleReferenceParts = bibleReference.split(" ")
+	/*
+	We assume that the last parts of the bible reference are numbers which should be treated as words an not together
+	 */
+	const bibleReferenceNumbers = bibleReferenceParts.at(-1).length - 1 // subtracting the colon which is not read
+	const bibleReferenceLength =
+		bibleReferenceNumbers + bibleReferenceParts.length - 1 // subtracting one cos of the numbers part
+
+	const noOfWords = bibleVerseLength + bibleReferenceLength
 
 	const averageWordsPerMinute = 190 // 180 - 220 based off the doc
 
@@ -68,6 +77,7 @@ playButton.addEventListener("click", async () => {
 
 	chrome.tts.speak(fullText, {
 		rate: chosenRate,
+		voiceName: "Moira",
 		onEvent: e => {
 			if (e.type === "start") {
 				playButton.classList.add("play-audio")
