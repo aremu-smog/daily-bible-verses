@@ -2,12 +2,20 @@ import { useCallback } from "react"
 import { StatusBar } from "expo-status-bar"
 import { Pressable, StyleSheet, Text, View } from "react-native"
 import { useFonts } from "expo-font"
+import verses from "./verses.json"
 
 export default function App() {
 	const [fontsLoaded] = useFonts({
 		"System-Blank": require("./assets/fonts/FTSystemTrial-BlankRegular.otf"),
 	})
 
+	const currentDate = new Date()
+
+	const todaysDate = currentDate.toLocaleDateString("en-us", {
+		year: "numeric",
+		month: "long",
+		day: "numeric",
+	})
 	const onLayoutRootView = useCallback(async () => {
 		if (fontsLoaded) {
 			console.log("Font loaded 🎉")
@@ -17,16 +25,15 @@ export default function App() {
 	if (!fontsLoaded) {
 		return null
 	}
+
+	const { bibleVerse, bibleReference } = getVerse()
 	return (
 		<View style={styles.container} onLayout={onLayoutRootView}>
 			<View style={{ flex: 0.1 }} />
 			<View style={{ flex: 0.7 }}>
-				<Text style={styles.bibleReference}>MON OCT 23, 2023</Text>
-				<Text style={styles.bibleVerse}>
-					And we know that in all things God works for the good of those who
-					love him, who have been called according to his purpose.
-				</Text>
-				<Text style={styles.bibleReference}>Romans 8:28</Text>
+				<Text style={styles.bibleReference}>{todaysDate}</Text>
+				<Text style={styles.bibleVerse}>{bibleVerse}</Text>
+				<Text style={styles.bibleReference}>{bibleReference}</Text>
 			</View>
 			<View style={{ flex: 0.1 }}>
 				<Pressable style={styles.button}>
@@ -37,6 +44,42 @@ export default function App() {
 		</View>
 	)
 }
+
+const getVerse: () => {
+	bibleVerse: string
+	bibleReference: string
+} = () => {
+	let bibleVerse
+	let bibleReference
+
+	const currentDate = new Date()
+	const day = currentDate.getDate()
+	const month = currentDate.getMonth()
+	const monthString = MONTHS[month]
+
+	const dayStringIndex = `${monthString} ${day}` as keyof typeof verses
+
+	const verseOfTheDay = verses[dayStringIndex]?.split("-")
+	bibleVerse = verseOfTheDay[0]
+	bibleReference = verseOfTheDay[1]
+
+	return { bibleVerse, bibleReference }
+}
+
+const MONTHS = [
+	"January",
+	"February",
+	"March",
+	"April",
+	"May",
+	"June",
+	"July",
+	"August",
+	"September",
+	"October",
+	"November",
+	"December",
+]
 
 const color = {
 	black: "#222222",
