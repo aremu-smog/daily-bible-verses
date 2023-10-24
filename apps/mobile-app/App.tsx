@@ -3,6 +3,7 @@ import { StatusBar } from "expo-status-bar"
 import { Pressable, StyleSheet, Text, View } from "react-native"
 import { useFonts } from "expo-font"
 import verses from "./verses.json"
+import Tts from "react-native-tts"
 
 export default function App() {
 	const [fontsLoaded] = useFonts({
@@ -39,10 +40,17 @@ export default function App() {
 				<Pressable style={styles.button}>
 					<Text style={styles.buttonText}>Share Verse</Text>
 				</Pressable>
+				<Pressable style={styles.button} onPress={playVerseAudio}>
+					<Text style={styles.buttonText}>Listen Now</Text>
+				</Pressable>
 			</View>
 			<StatusBar style='auto' />
 		</View>
 	)
+}
+
+const playVerseAudio = () => {
+	Tts.speak("Hello there!")
 }
 
 const getVerse: () => {
