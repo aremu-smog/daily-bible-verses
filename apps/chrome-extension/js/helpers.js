@@ -47,7 +47,7 @@ const getVerse = async () => {
 	await fetch("./verses.json")
 		.then(res => res.json())
 		.then(data => {
-			const verseOfTheDay = data[dayStringIndex]?.split("-")
+			const verseOfTheDay = data[dayStringIndex]?.split(" - ")
 			bibleVerse = verseOfTheDay[0]
 			bibleReference = verseOfTheDay[1]
 		})
