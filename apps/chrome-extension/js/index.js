@@ -45,7 +45,8 @@ themeToggleButton.addEventListener("click", () => {
 
 tweetThisButton.addEventListener("click", async () => {
 	const { bibleReference, bibleVerse } = await getVerse()
-	const text = `VerseOfTheDay. ${bibleVerse} - ${bibleReference} `
+	const hashSymbol = "%23" // url encoded value of #
+	const text = `${hashSymbol}VerseOfTheDay. ${bibleVerse} - ${bibleReference} `
 
 	window.open(
 		`https://twitter.com/intent/tweet?text=${text}&via=aremu_smog`,
@@ -57,7 +58,7 @@ tweetThisButton.addEventListener("click", async () => {
 playButton.addEventListener("click", async () => {
 	const { bibleReference, bibleVerse } = await getVerse()
 
-	const fullText = `${bibleReference}. ${bibleVerse}`
+	const fullText = `${bibleVerse}. ${bibleReference}`
 	const bibleVerseLength = bibleVerse.split(" ").length
 	const bibleReferenceParts = bibleReference.split(" ")
 	/*
