@@ -10,8 +10,14 @@
  * @typedef {Object} BibleVersions
  * @property {BibleVersion} kjv
  * @property {BibleVersion} chatgpt
+ * @property {BibleVersion} niv
  */
 const BIBLE_VERSIONS = {
+  niv: {
+    verses: "./verses/niv.json",
+    fullname: "New International Version",
+    abbreviation: "NIV",
+  },
   chatgpt: {
     verses: "./verses/chatgpt.json",
     fullname: "ChatGPT",
