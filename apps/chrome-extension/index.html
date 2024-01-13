@@ -1,49 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Verse of The Day</title>
-		<link rel="stylesheet" href="main.css" />
-		<link rel="favicon" href="./assets/icon.png" />
-	</head>
-	<body>
-		<main>
-			<section class="wrapper">
-				<div>
-					<p id="todays-date" class="pill"></p>
-					<p class="pill">
-						<span id="hour">00</span>&nbsp;<span id="time-separator">:</span
-						>&nbsp;<span id="minute">00</span> HRS
-					</p>
-				</div>
-				<h1 id="bible-verse"></h1>
-				<div>
-					<p id="bible-reference" class="pill"></p>
-					<button id="play-button">
-						Play
-						<span id="play-button-loader"></span>
-					</button>
-				</div>
-			</section>
-		</main>
-		<footer>
-			<div class="button-group">
-				<button id="tweet-button">Tweet this</button>
-				<button id="theme-button">Dark/Light</button>
-			</div>
-			<p>
-				👨🏼‍💻Built by
-				<a
-					href="https://twitter.com/aremu_smog"
-					target="_blank"
-					rel="noopener noreferrer"
-					>Aremu Smog
-				</a>
-				💡 Inspired by the Holy Spirit
-			</p>
-		</footer>
-	</body>
-	<script src="./js/helpers.js"></script>
-	<script src="./js/index.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Verse of The Day</title>
+    <link rel="stylesheet" href="main.css" />
+    <link rel="favicon" href="./assets/icon.png" />
+  </head>
+  <body>
+    <main>
+      <section class="wrapper">
+        <div>
+          <p id="todays-date" class="pill"></p>
+          <p class="pill">
+            <span id="hour">00</span>&nbsp;<span id="time-separator">:</span
+            >&nbsp;<span id="minute">00</span> HRS
+          </p>
+        </div>
+        <h1 id="bible-verse"></h1>
+        <div>
+          <p id="bible-reference" class="pill"></p>
+          <button id="play-button">
+            Play
+            <span id="play-button-loader"></span>
+          </button>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="button-group">
+        <button id="tweet-button">Tweet this</button>
+        <button id="theme-button">Dark/Light</button>
+      </div>
+      <p class="credits">
+        <span>
+          👨🏼‍💻Built by
+          <a
+            href="https://twitter.com/aremu_smog"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Aremu Smog
+          </a>
+        </span>
+        <span> 💡Inspired by the Holy Spirit </span>
+        <span>
+          &nbsp;📖 Verses by
+          <a
+            href="https://www.linkedin.com/in/ibukun-oyeleke-a17353235/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Ibukunoluwa
+          </a>
+        </span>
+      </p>
+    </footer>
+  </body>
+  <script src="./js/bible-versions.js"></script>
+  <script src="./js/helpers.js"></script>
+  <script src="./js/index.js"></script>
 </html>
