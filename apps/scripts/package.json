@@ -1,0 +1,17 @@
+{
+	"name": "verse-of-the-day-server",
+	"version": "1.0.0",
+	"type": "module",
+	"description": "Backend server for verse of the day",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"@anthropic-ai/sdk": "^0.27.3",
+		"dotenv": "^16.4.5",
+		"openai": "^4.65.0"
+	}
+}
