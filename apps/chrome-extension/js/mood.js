@@ -2,10 +2,27 @@
  * Select a bible verse based on the users mood
  */
 
-const moodSelector = document.querySelector("#mood")
+const MOOD_EMOJIS = {
+	happy: "😊",
+	grateful: "🙏",
+	calm: "😌",
+	optimistic: "🌟",
+	energized: "⚡",
+	indifferent: "😐",
+	bored: "😒",
+	sad: "😢",
+	angry: "😠",
+	anxious: "😰",
+	irritable: "😤",
+	lonely: "🕯️",
+	frustrated: "😫",
+	depressed: "😞",
+}
 
 moodSelector.addEventListener("change", async e => {
 	const selectedMood = e.target.value
+	const emojiMood = MOOD_EMOJIS[selectedMood] ?? "❤️"
+	moodIcon.innerText = emojiMood
 	if (selectedMood) {
 		const versesForMoodPath = `./verses/moods/${selectedMood}.json`
 

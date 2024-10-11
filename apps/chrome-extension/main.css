@@ -27,7 +27,7 @@ p {
 	max-width: 1000px;
 	margin: auto;
 	text-align: center;
-	padding-top: 5rem;
+	padding-top: 3rem;
 	padding-bottom: 200px;
 }
 #bible-verse {
@@ -77,8 +77,13 @@ button:hover::after {
 
 #time-separator {
 	opacity: 0;
-
 	animation: blink 1s linear forwards infinite;
+}
+
+.mood {
+	font-size: 24px;
+	font-weight: 300;
+	text-transform: uppercase;
 }
 
 @keyframes blink {
@@ -144,15 +149,27 @@ footer .credits > span {
 	transition-timing-function: linear;
 }
 
-#mood {
+.mood {
+	border-radius: 24px;
+	margin-left: 4px;
+	display: inline-flex;
+	align-items: center;
+}
+.mood__icon {
+	display: inline-block;
+	font-size: 16px;
+	padding: 0 4px;
+}
+.mood__select {
 	background: transparent;
 	appearance: none;
-	font-size: 16px;
 	font-family: "primary", sans-serif;
+	outline: none;
 	margin-left: 4px;
-	padding-left: 8px;
+	padding: 0px;
 	cursor: pointer;
-	min-width: 120px;
+	border: none;
+	font-size: 16px;
 }
 
 /*

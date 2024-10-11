@@ -11,3 +11,6 @@ const playButtonLoader = document.querySelector("#play-button-loader")
 
 const timerHour = document.querySelector("#hour")
 const timerMinute = document.querySelector("#minute")
+
+const moodSelector = document.querySelector("#mood")
+const moodIcon = document.querySelector("#mood-icon")

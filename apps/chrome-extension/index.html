@@ -10,32 +10,34 @@
 	<body>
 		<main>
 			<section class="wrapper">
-				<div>
-					<p id="todays-date" class="pill"></p>
-					<!-- <p class="pill">
+				<header class="main-header">
+					<div class="pill">
+						<span id="todays-date"></span> |
 						<span id="hour">00</span>&nbsp;<span id="time-separator">:</span
 						>&nbsp;<span id="minute">00</span> HRS
-					</p> -->
+					</div>
 
-					I am Feeling:
-					<select id="mood">
-						<option value="">Mood</option>
-						<option value="happy">Happy</option>
-						<option value="grateful">Grateful</option>
-						<option value="calm">Calm</option>
-						<option value="optimistic">Optimistic</option>
-						<option value="energized">Energized</option>
-						<option value="indifferent">Indifferent</option>
-						<option value="bored">Bored</option>
-						<option value="sad">Sad</option>
-						<option value="angry">Angry</option>
-						<option value="anxious">Anxious</option>
-						<option value="irritable">Irritable</option>
-						<option value="lonely">Lonely</option>
-						<option value="frustrated">Frustrated</option>
-						<option value="depressed">Depressed</option>
-					</select>
-				</div>
+					<div class="pill mood">
+						<span id="mood-icon" class="mood__icon">❤️</span>
+						<select id="mood" class="mood__select">
+							<option value="">Select Mood</option>
+							<option value="happy">Happy</option>
+							<option value="grateful">Grateful</option>
+							<option value="calm">Calm</option>
+							<option value="optimistic">Optimistic</option>
+							<option value="energized">Energized</option>
+							<option value="indifferent">Indifferent</option>
+							<option value="bored">Bored</option>
+							<option value="sad">Sad</option>
+							<option value="angry">Angry</option>
+							<option value="anxious">Anxious</option>
+							<option value="irritable">Irritable</option>
+							<option value="lonely">Lonely</option>
+							<option value="frustrated">Frustrated</option>
+							<option value="depressed">Depressed</option>
+						</select>
+					</div>
+				</header>
 				<h1 id="bible-verse"></h1>
 				<div>
 					<p id="bible-reference" class="pill"></p>
