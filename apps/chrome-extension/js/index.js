@@ -1,17 +1,3 @@
-const todaysDate = document.querySelector("#todays-date")
-const todaysVerse = document.querySelector("#bible-verse")
-const todaysBibleReference = document.querySelector("#bible-reference")
-
-const mainWrapper = document.querySelector("body")
-const themeToggleButton = document.querySelector("#theme-button")
-const tweetThisButton = document.querySelector("#tweet-button")
-
-const playButton = document.querySelector("#play-button")
-const playButtonLoader = document.querySelector("#play-button-loader")
-
-const timerHour = document.querySelector("#hour")
-const timerMinute = document.querySelector("#minute")
-
 window.addEventListener("load", async e => {
 	const currentDate = getTodaysDate()
 	todaysDate.innerText = currentDate
@@ -44,8 +30,11 @@ themeToggleButton.addEventListener("click", () => {
 })
 
 tweetThisButton.addEventListener("click", async () => {
-	const { bibleReference, bibleVerse } = await getVerse()
-	const text = `VerseOfTheDay. ${bibleVerse} - ${bibleReference} `
+	const bibleReference = todaysBibleReference.innerText
+	const bibleVerse = todaysVerse.innerText
+
+	const hashSymbol = "%23" // url encoded value of #
+	const text = `${hashSymbol}VerseOfTheDay. ${bibleVerse} - ${bibleReference} `
 
 	window.open(
 		`https://twitter.com/intent/tweet?text=${text}&via=aremu_smog`,
@@ -55,9 +44,10 @@ tweetThisButton.addEventListener("click", async () => {
 })
 
 playButton.addEventListener("click", async () => {
-	const { bibleReference, bibleVerse } = await getVerse()
+	const bibleReference = todaysVerse.innerText
+	const bibleVerse = todaysBibleReference.innerText
 
-	const fullText = `${bibleReference}. ${bibleVerse}`
+	const fullText = `${bibleVerse}. ${bibleReference}`
 	const bibleVerseLength = bibleVerse.split(" ").length
 	const bibleReferenceParts = bibleReference.split(" ")
 	/*
@@ -65,7 +55,7 @@ playButton.addEventListener("click", async () => {
 	 */
 	const bibleReferenceNumbers = bibleReferenceParts.at(-1).length - 1 // subtracting the colon which is not read
 	const bibleReferenceLength =
-		bibleReferenceNumbers + bibleReferenceParts.length - 1 // subtracting one cos of the numbers part
+		bibleReferenceNumbers + bibleReferenceParts.length // subtracting one cos of the numbers part
 
 	const noOfWords = bibleVerseLength + bibleReferenceLength
 
