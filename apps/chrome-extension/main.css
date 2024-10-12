@@ -72,7 +72,11 @@ button:hover::after {
 	border: 1px solid var(--black);
 	border-radius: 6px;
 	display: inline-block;
-	padding: 0 8px;
+	padding: 0 10px;
+}
+
+.date_time {
+	font-size: 16px;
 }
 
 #time-separator {

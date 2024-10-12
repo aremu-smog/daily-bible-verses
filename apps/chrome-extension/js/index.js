@@ -42,7 +42,8 @@ tweetThisButton.addEventListener("click", async () => {
 })
 
 playButton.addEventListener("click", async () => {
-	const { bibleReference, bibleVerse } = await getVerse()
+	const bibleReference = todaysVerse.innerText
+	const bibleVerse = todaysBibleReference.innerText
 
 	const fullText = `${bibleVerse}. ${bibleReference}`
 	const bibleVerseLength = bibleVerse.split(" ").length
@@ -52,7 +53,7 @@ playButton.addEventListener("click", async () => {
 	 */
 	const bibleReferenceNumbers = bibleReferenceParts.at(-1).length - 1 // subtracting the colon which is not read
 	const bibleReferenceLength =
-		bibleReferenceNumbers + bibleReferenceParts.length - 1 // subtracting one cos of the numbers part
+		bibleReferenceNumbers + bibleReferenceParts.length // subtracting one cos of the numbers part
 
 	const noOfWords = bibleVerseLength + bibleReferenceLength
 
