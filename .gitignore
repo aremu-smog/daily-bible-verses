@@ -1,0 +1,6 @@
+*.zip
+*.apk
+*.ipa
+.env
+node_modules/
+apps/scripts/moods/
