@@ -30,7 +30,9 @@ themeToggleButton.addEventListener("click", () => {
 })
 
 tweetThisButton.addEventListener("click", async () => {
-	const { bibleReference, bibleVerse } = await getVerse()
+	const bibleReference = todaysBibleReference.innerText
+	const bibleVerse = todaysVerse.innerText
+
 	const hashSymbol = "%23" // url encoded value of #
 	const text = `${hashSymbol}VerseOfTheDay. ${bibleVerse} - ${bibleReference} `
 
