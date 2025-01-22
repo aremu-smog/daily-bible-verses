@@ -1,14 +1,27 @@
-import { useCallback } from "react"
+import { useCallback, useEffect } from "react"
 import { StatusBar } from "expo-status-bar"
 import { Pressable, StyleSheet, Text, View } from "react-native"
 import { useFonts } from "expo-font"
 import verses from "./verses.json"
+import { NativeModules } from "react-native"
 
 export default function App() {
 	const [fontsLoaded] = useFonts({
 		"System-Blank": require("./assets/fonts/FTSystemTrial-BlankRegular.otf"),
 	})
+	const { bibleVerse, bibleReference } = getVerse()
 
+	const { SharedStorage, WidgetHelper } = NativeModules
+
+	useEffect(() => {
+		if (bibleVerse && bibleReference) {
+			SharedStorage.setValue("bibleVerse", bibleVerse)
+			SharedStorage.setValue("bibleReference", bibleReference)
+			WidgetHelper.reloadWidget
+		} else {
+			console.log("No verse")
+		}
+	}, [])
 	const currentDate = new Date()
 
 	const todaysDate = currentDate.toLocaleDateString("en-us", {
@@ -26,7 +39,6 @@ export default function App() {
 		return null
 	}
 
-	const { bibleVerse, bibleReference } = getVerse()
 	return (
 		<View style={styles.container} onLayout={onLayoutRootView}>
 			<View style={{ flex: 0.1 }} />
