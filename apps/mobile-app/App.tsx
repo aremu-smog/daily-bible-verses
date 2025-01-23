@@ -1,6 +1,6 @@
 import { useCallback, useEffect } from "react"
 import { StatusBar } from "expo-status-bar"
-import { Pressable, StyleSheet, Text, View } from "react-native"
+import { Pressable, StyleSheet, Text, View, Share } from "react-native"
 import { useFonts } from "expo-font"
 import verses from "./verses.json"
 import { NativeModules } from "react-native"
@@ -35,6 +35,17 @@ export default function App() {
 		}
 	}, [fontsLoaded])
 
+	const shareVerse = async () => {
+		try {
+			Share.share({
+				message: `${bibleVerse} - ${bibleReference}`,
+				title: "Verse of the day",
+			})
+		} catch (e) {
+			console.warn({ e })
+		}
+	}
+
 	if (!fontsLoaded) {
 		return null
 	}
@@ -48,7 +59,7 @@ export default function App() {
 				<Text style={styles.bibleReference}>{bibleReference}</Text>
 			</View>
 			<View style={{ flex: 0.1 }}>
-				<Pressable style={styles.button}>
+				<Pressable style={styles.button} onPress={shareVerse}>
 					<Text style={styles.buttonText}>Share Verse</Text>
 				</Pressable>
 				{/* <Pressable style={styles.button} onPress={playVerseAudio}>
