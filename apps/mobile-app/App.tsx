@@ -46,6 +46,8 @@ export default function App() {
 		}
 	}
 
+	const playVerse = () => {}
+
 	if (!fontsLoaded) {
 		return null
 	}
@@ -62,9 +64,9 @@ export default function App() {
 				<Pressable style={styles.button} onPress={shareVerse}>
 					<Text style={styles.buttonText}>Share Verse</Text>
 				</Pressable>
-				{/* <Pressable style={styles.button} onPress={playVerseAudio}>
+				<Pressable style={styles.button} onPress={playVerse}>
 					<Text style={styles.buttonText}>Listen Now</Text>
-				</Pressable> */}
+				</Pressable>
 			</View>
 			<StatusBar style='auto' />
 		</View>
